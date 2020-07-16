@@ -7,15 +7,15 @@ The new mouvements are `jklm` instead of `hjkl`
 But I made other changes (yep not that pure vim right there)
 
 ### List (not everything) of changes
-	- tabstop, shiftwidth, softtapstop -> 4
-	- tab symbol -> | 
-	- no backup, undodir (don't forget to create the dir to make it working)
-	- noexpandtab
-	- relative numbers
-	- scrolloff -> 8
-	- encoding -> utf-8
-	- `jk` to quit insert mode
-	- `ù` to go to the start of the line in visual and normal mode
+- tabstop, shiftwidth, softtapstop -> 4
+- tab symbol -> | 
+- no backup, undodir (don't forget to create the dir to make it working)
+- noexpandtab
+- relative numbers
+- scrolloff -> 8
+- encoding -> utf-8
+- `jk` to quit insert mode
+- `ù` to go to the start of the line in visual and normal mode
 
 Don't forget to watch the whole config to adapt it to your style.
 
