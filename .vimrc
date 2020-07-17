@@ -1,7 +1,8 @@
+" General Settings for vim
+syntax on
 set background=dark
 set tabstop=4
 set nowrap
-syntax on
 set number
 set fileencoding=utf-8
 set listchars=tab:\|\ 
@@ -19,6 +20,7 @@ set relativenumber
 set shiftwidth=4
 set softtabstop=4
 
+"Plugin and plugin related settings
 call plug#begin("~/.vim/plugged")
 Plug 'mattn/emmet-vim'
 Plug 'ajh17/vimcompletesme'
@@ -33,12 +35,13 @@ call plug#end()
 colorscheme iceberg
 let g:airline#extensions#whitespace#enabled = 0
 autocmd VimEnter * AirlineTheme murmur
-highlight CursorLine cterm=bold 
 
+" escape remap + retab files with tabs and not space
 inoremap jk <Esc>
 nnoremap <Tab><Tab> :%retab!<CR>
 vnoremap <C-c> <Esc>
 
+" Normal mode mouvements remap + ù to go on the beginning of the line
 nnoremap j h
 nnoremap k j
 nnoremap l k
@@ -46,12 +49,21 @@ nnoremap m l
 nnoremap h m
 nnoremap ù 0
 
+" Normal mode remap of Ctrl-W mouvements
 nnoremap <C-w>j <C-w>h
 nnoremap <C-w>k <C-w>j
 nnoremap <C-w>l <C-w>k
 nnoremap <C-w>m <C-w>l
 nnoremap <C-w>h <C-w>m
 
+" Personal tab shortcuts in normal mode
+nnoremap <Left> gT
+nnoremap <Right> gt
+nnoremap <Up> :tabm +1<CR>
+nnoremap <Down> :tabm -1<CR>
+nnoremap <S-tab> :tabnew<CR>:open<Space>.<CR>
+
+" Visual mode mouvements remap same as Normal mode remap
 vnoremap j h
 vnoremap k j
 vnoremap l k
