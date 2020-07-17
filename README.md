@@ -7,7 +7,7 @@ The new mouvements are `jklm` instead of `hjkl`
 But I made other changes (yep not that pure vim right there)
 
 ### List (not everything) of changes
-- tabstop, shiftwidth, softtapstop -> 4
+- tabstop, shiftwidth, softtabstop -> 4
 - tab symbol -> | 
 - no backup, undodir (don't forget to create the dir to make it working)
 - noexpandtab
