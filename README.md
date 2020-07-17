@@ -1,4 +1,4 @@
-# Vim Config by L0Wigh
+# Vim Config
 
 ## What's in it ?
 I made this .vimrc because the basics keybinds of vim aren't great for AZERTY Keyboards
