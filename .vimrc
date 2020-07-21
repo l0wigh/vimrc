@@ -22,18 +22,25 @@ set softtabstop=4
 
 " Plugin and plugin related settings
 call plug#begin("~/.vim/plugged")
-Plug 'mattn/emmet-vim'
+
+" Vim Colorschemes
 Plug 'joshdick/onedark.vim'
+Plug 'nightsense/snow'
+Plug 'cocopon/iceberg.vim'
+Plug 'aereal/vim-colors-japanesque'
+
+" Vim Plugins for Dev
+Plug 'mattn/emmet-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'evanleck/vim-svelte'
 Plug 'airblade/vim-gitgutter'
-Plug 'nightsense/snow'
-Plug 'cocopon/iceberg.vim'
 Plug 'yuezk/vim-js'
 Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
-colorscheme iceberg
+colorscheme japanesque
+
 " Config for airline
 let g:airline#extensions#whitespace#enabled = 0
 autocmd VimEnter * AirlineTheme murmur
