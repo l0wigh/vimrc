@@ -20,23 +20,42 @@ set relativenumber
 set shiftwidth=4
 set softtabstop=4
 
-"Plugin and plugin related settings
+" Plugin and plugin related settings
 call plug#begin("~/.vim/plugged")
 Plug 'mattn/emmet-vim'
-Plug 'ajh17/vimcompletesme'
 Plug 'joshdick/onedark.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'evanleck/vim-svelte'
+Plug 'airblade/vim-gitgutter'
 Plug 'nightsense/snow'
 Plug 'cocopon/iceberg.vim'
 Plug 'yuezk/vim-js'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 colorscheme iceberg
+" Config for airline
 let g:airline#extensions#whitespace#enabled = 0
 autocmd VimEnter * AirlineTheme murmur
 
-" escape remap + retab files with tabs and not space
+" Config for vim-gutter
+set updatetime=250
+
+" Config for coc.nvim
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? coc#_select_confirm() :
+  \ coc#expandableOrJumpable() ?
+  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+let g:coc_snippet_next = '<tab>'
+
+
+" Escape remap + retab files with tabs and not space
 inoremap jk <Esc>
 nnoremap <Tab><Tab> :%retab!<CR>
 vnoremap <C-c> <Esc>
