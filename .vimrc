@@ -1,6 +1,6 @@
 " General Settings for vim
-syntax on
 set background=dark
+syntax on
 set tabstop=4
 set nowrap
 set number
@@ -14,7 +14,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set noexpandtab
-set t_Co=256
 set scrolloff=8
 set relativenumber
 set shiftwidth=4
@@ -27,19 +26,33 @@ call plug#begin("~/.vim/plugged")
 Plug 'joshdick/onedark.vim'
 Plug 'nightsense/snow'
 Plug 'cocopon/iceberg.vim'
-Plug 'aereal/vim-colors-japanesque'
 
 " Vim Plugins for Dev
 Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'evanleck/vim-svelte'
 Plug 'airblade/vim-gitgutter'
 Plug 'yuezk/vim-js'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
-colorscheme japanesque
+colorscheme sunset
+filetype plugin indent on
+
+"Config for coc.nvim
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+	  let col = col('.') - 1
+	    return !col || getline('.')[col - 1]  =~# '\s'
+	endfunction
+
+	let g:coc_snippet_next = '<tab>'
 
 " Config for airline
 let g:airline#extensions#whitespace#enabled = 0
@@ -47,20 +60,6 @@ autocmd VimEnter * AirlineTheme murmur
 
 " Config for vim-gutter
 set updatetime=250
-
-" Config for coc.nvim
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? coc#_select_confirm() :
-  \ coc#expandableOrJumpable() ?
-  \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-let g:coc_snippet_next = '<tab>'
-
 
 " Escape remap + retab files with tabs and not space
 inoremap jk <Esc>
@@ -74,6 +73,7 @@ nnoremap l k
 nnoremap m l
 nnoremap h m
 nnoremap ù 0
+nnoremap <CR> o<Esc>
 
 " Normal mode remap of Ctrl-W mouvements
 nnoremap <C-w>j <C-w>h
